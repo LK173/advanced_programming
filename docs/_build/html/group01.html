@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>group01 module &mdash; group_01 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Functions" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            group_01
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Functions</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">group01 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#methods">Methods:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-usage">Example usage:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">group_01</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Functions</a></li>
+      <li class="breadcrumb-item active">group01 module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/group01.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-group01">
+<span id="group01-module"></span><h1>group01 module<a class="headerlink" href="#module-group01" title="Permalink to this heading"></a></h1>
+<p>This module contains a <cite>Group01</cite> class, which represents agricultural output of several countries.</p>
+<p>The <cite>Group01</cite> class has the following methods:</p>
+<section id="methods">
+<h2>Methods:<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt>__init__(name):</dt><dd><p>Initializes the object with the given name.</p>
+</dd>
+<dt>get_data():</dt><dd><p>Downloads a CSV file containing agricultural total factor productivity data from
+this Github repository (<a class="reference external" href="https://github.com/owid/owid-datasets/tree/master/datasets">https://github.com/owid/owid-datasets/tree/master/datasets</a>),
+saves it into a downloads/ directory and reads the dataset into a pandas DataFrame.</p>
+</dd>
+<dt>get_countries():</dt><dd><p>Returns a list of available countries in the dataset.</p>
+</dd>
+<dt>plot_quantity():</dt><dd><p>Plots a heatmap of the correlation between all the columns in the Pandas
+DataFrame that end with the string ‘_quantity’.</p>
+</dd>
+<dt>plot_area_chart(country: str, normalize: bool):</dt><dd><p>Plots an area chart of the distinct “_output_” columns
+for the given country or all countries if <cite>country</cite> is set to “World” or None.
+The columns are normalized by the total output if the <cite>normalize</cite> parameter
+is set to True.</p>
+</dd>
+<dt>plot_country_chart(args: Union[list[str], str]):</dt><dd><p>Plots the total of the _output_ values of each
+selected country given by <cite>country</cite>, on the same chart with the
+X-axis being the Year.</p>
+</dd>
+<dt>gapminder_plot(year: int):</dt><dd><p>Visualize Gapminder data for a specific year.</p>
+</dd>
+<dt>choropleth(self, year: int) -&gt; None:</dt><dd><p>Plots a choropleth map of the total factor productivity (tfp) for the given year</p>
+</dd>
+<dt>predictor(self, countries: list) -&gt; None:</dt><dd><p>Predicts the total factor productivity (tfp) by year for the given countries up to three until the year 2050.</p>
+</dd>
+</dl>
+</section>
+<section id="example-usage">
+<h2>Example usage:<a class="headerlink" href="#example-usage" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><p>my_object = Group01(“my_object”)
+my_object.get_data()
+my_object.get_countries() # Output: [‘Afghanistan’, ‘Albania’, ‘Algeria’, … ‘Zimbabwe’]
+my_object.plot_quantity()
+my_object.plot_area_chart(“World”, True)
+my_object.plot_country_chart(“World”, True)
+my_object.gapminder_plot(“World”, True)
+my_object.choropleth(1990)
+my_object.predictor([‘Germany’,’France’,’Iraq’])</p>
+</div></blockquote>
+<dl class="py class">
+<dt class="sig sig-object py" id="group01.Group01">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">group01.</span></span><span class="sig-name descname"><span class="pre">Group01</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#group01.Group01" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent agricultural output of several countries.</p>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>name of the object</p>
+</dd>
+<dt>df<span class="classifier">pandas.DataFrame</span></dt><dd><p>a pandas DataFrame containing the data</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>get_data():</dt><dd><p>Downloads a CSV file containing agricultural total factor productivity data from this Github
+repository (<a class="reference external" href="https://github.com/owid/owid-datasets/tree/master/datasets">https://github.com/owid/owid-datasets/tree/master/datasets</a>)</p>
+</dd>
+<dt>get_countries():</dt><dd><p>Returns a list of available countries in the dataset.</p>
+</dd>
+<dt>plot_quantity():</dt><dd><p>Plots a heatmap of the correlation between all the columns in the Pandas DataFrame that end
+with the string ‘_quantity’.</p>
+</dd>
+<dt>plot_area_chart(country, normalize):</dt><dd><p>Plots an area chart of the distinct “_output_” columns for the given country or all
+countries if <cite>country</cite> is set to “World” or None. The columns are normalized by the
+total output if the <cite>normalize</cite> parameter is set to True.</p>
+</dd>
+<dt>plot_country_chart(args: Union[list[str], str]):</dt><dd><p>Plots the total of the _output_ values of each selected country given by <cite>country</cite>, on the
+same chart with the X-axis being the Year.</p>
+</dd>
+<dt>gapminder_plot(year: int):</dt><dd><p>Visualize Gapminder data for a specific year.</p>
+</dd>
+<dt>choropleth(self, year: int) -&gt; None:</dt><dd><p>Plots a choropleth map of the total factor productivity (tfp) for the given year</p>
+</dd>
+<dt>predictor(self, countries: list) -&gt; None:</dt><dd><p>Predicts the total factor productivity (tfp) by year for the given countries up to three until the year 2050.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="group01.Group01.choropleth">
+<span class="sig-name descname"><span class="pre">choropleth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#group01.Group01.choropleth" title="Permalink to this definition"></a></dt>
+<dd><p>Plots a choropleth map of the total factor productivity (tfp) for the given year</p>
+<p>Parameters:
+year : int</p>
+<blockquote>
+<div><p>The year for which to plot the tfp</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TypeError</strong> – If the input year is not an integer</p></li>
+<li><p><strong>ValueError</strong> – If the self.df or self.df_geographical attributes are None</p></li>
+<li><p><strong>ValueError</strong> – If year is not in the dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example usage:</dt><dd><p>my_object.choropleth(2000)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="group01.Group01.df_geographical">
+<span class="sig-name descname"><span class="pre">df_geographical</span></span><a class="headerlink" href="#group01.Group01.df_geographical" title="Permalink to this definition"></a></dt>
+<dd><p>‘Myanmar’, ‘Eswatini’: ‘eSwatini’,
+‘United States’: ‘United States of America’, ‘North Macedonia’: ‘Macedonia’,
+‘Dominican Republic’: ‘Dominican Rep.’, ‘Equatorial Guinea’: ‘Eq. Guinea’, ‘South Sudan’: ‘S. Sudan’,
+‘Democratic Republic of Congo’: ‘Dem. Rep. Congo’, ‘Solomon Islands’: ‘Solomon Is.’, ‘Timor’: ‘Timor-Leste’,
+‘Central African Republic’: ‘Central African Rep.’, ‘Macedonia’: ‘North Macedonia’}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>self.merge_dict = {‘Bosnia and Herzegovina’</p>
+</dd>
+<dt class="field-even">Type<span class="colon">:</span></dt>
+<dd class="field-even"><p>‘Bosnia and Herz.’, ‘Burma’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="group01.Group01.gapminder">
+<span class="sig-name descname"><span class="pre">gapminder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">year</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_scale</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#group01.Group01.gapminder" title="Permalink to this definition"></a></dt>
+<dd><p>Visualize Gapminder data for a specific year.</p>
+<p>This function generates a scatter plot that shows the relationship between fertilizer
+quantity and output quantity for agriculture in a specific year. The size of each point
+represents the animal output quantity, which is assumed to be an indicator of the size of
+the agricultural operation.</p>
+<p>Parameters:
+year : int</p>
+<blockquote>
+<div><p>The year for which to visualize the data.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>log_scale<span class="classifier">bool, optional (default=False)</span></dt><dd><p>If True, the x and y axis will be displayed in logarithmic scale.</p>
+</dd>
+</dl>
+<p>Raises:
+TypeError</p>
+<blockquote>
+<div><p>If the received argument is not an int or if it’s negative.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If the year is not present in the dataset.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example usage:</dt><dd><p>my_object = Group01(“my_object”)
+my_object.gapminder_plot(2000, True)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="group01.Group01.get_countries">
+<span class="sig-name descname"><span class="pre">get_countries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#group01.Group01.get_countries" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a list of available countries in the dataset.</p>
+<p>If the dataframe is not available, the method will first call the <cite>get_data</cite> method to
+download and read the dataset into the <cite>df</cite> attribute. Then it returns a list of unique
+countries in the ‘Entity’ column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of unique countries in the dataset.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example usage:</dt><dd><p>my_object = Group01(“my_object”)
+my_object.get_countries() # Output: [‘Afghanistan’, ‘Albania’, ‘Algeria’…]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="group01.Group01.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#group01.Group01.get_data" title="Permalink to this definition"></a></dt>
+<dd><p>This method downloads a CSV file containing agricultural total factor productivity data from
+this Github repository (<a class="reference external" href="https://github.com/owid/owid-datasets/tree/master/datasets">https://github.com/owid/owid-datasets/tree/master/datasets</a>) and
+saves it into a downloads/ directory in the root directory of the project (main project
+directory). If the data file already exists, the method does not download it again. The
+method also reads the dataset into a pandas DataFrame, which is stored as an attribute of
+the class. If the DataFrame already exists (i.e., has already been loaded), the method does
+not reload it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If there is an error while downloading the data file</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example usage:</dt><dd><p>my_object = Group01(“my_object”)
+my_object.get_data()</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="group01.Group01.merge_dict">
+<span class="sig-name descname"><span class="pre">merge_dict</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Bosnia</span> <span class="pre">and</span> <span class="pre">Herzegovina':</span> <span class="pre">'Bosnia</span> <span class="pre">and</span> <span class="pre">Herz.',</span> <span class="pre">'Burma':</span> <span class="pre">'Myanmar',</span> <span class="pre">'Central</span> <span class="pre">African</span> <span class="pre">Republic':</span> <span class="pre">'Central</span> <span class="pre">African</span> <span class="pre">Rep.',</span> <span class="pre">'Democratic</span> <span class="pre">Republic</span> <span class="pre">of</span> <span class="pre">Congo':</span> <span class="pre">'Dem.</span> <span class="pre">Rep.</span> <span class="pre">Congo',</span> <span class="pre">'Dominican</span> <span class="pre">Republic':</span> <span class="pre">'Dominican</span> <span class="pre">Rep.',</span> <span class="pre">'Equatorial</span> <span class="pre">Guinea':</span> <span class="pre">'Eq.</span> <span class="pre">Guinea',</span> <span class="pre">'Eswatini':</span> <span class="pre">'eSwatini',</span> <span class="pre">'Macedonia':</span> <span class="pre">'North</span> <span class="pre">Macedonia',</span> <span class="pre">'North</span> <span class="pre">Macedonia':</span> <span class="pre">'Macedonia',</span> <span class="pre">'Solomon</span> <span class="pre">Islands':</span> <span class="pre">'Solomon</span> <span class="pre">Is.',</span> <span class="pre">'South</span> <span class="pre">Sudan':</span> <span class="pre">'S.</span> <span class="pre">Sudan',</span> <span class="pre">'Timor':</span> <span class="pre">'Timor-Leste',</span> <span class="pre">'United</span> <span class="pre">States':</span> <span class="pre">'United</span> <span class="pre">States</span> <span class="pre">of</span> <span class="pre">America'}</span></em><a class="headerlink" href="#group01.Group01.merge_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="group01.Group01.plot_area_chart">
+<span class="sig-name descname"><span class="pre">plot_area_chart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#group01.Group01.plot_area_chart" title="Permalink to this definition"></a></dt>
+<dd><p>Plots an area chart of the distinct “_output_” columns for the given country or all
+countries if <cite>country</cite> is set to “World” or None. The columns are normalized by the total
+output if the <cite>normalize</cite> parameter is set to True.</p>
+<p>If the dataframe is not available, the method will first call the <cite>get_data</cite> method to
+download and read the dataset into the <cite>df</cite> attribute.</p>
+<p>Parameters:
+country (str, optional):</p>
+<blockquote>
+<div><p>The country to plot the data for. If set to “World” or None,
+the data for all countries will be plotted.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>normalize<span class="classifier">bool</span></dt><dd><p>If set to True, the data will be normalized by the total output.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TypeError</strong> – If the <cite>country</cite> parameter is not a string or the <cite>normalize</cite></p></li>
+<li><p><strong>parameter is not a bool</strong> – </p></li>
+<li><p><strong>Exception</strong> – If one or less columns with the “_output_” suffix are available or if the</p></li>
+<li><p><strong>given country does not exist</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example usage:</dt><dd><p>my_object = Group01(“my_object”)
+my_object.plot_area_chart(“World”, True)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="group01.Group01.plot_country_chart">
+<span class="sig-name descname"><span class="pre">plot_country_chart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#group01.Group01.plot_country_chart" title="Permalink to this definition"></a></dt>
+<dd><p>Plots the total of the _output_ values of each selected country given by <cite>country</cite>,
+on the same chart with the X-axis being the Year.</p>
+<p>Parameters:
+args : list</p>
+<blockquote>
+<div><p>A list of countries to plot</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>TypeError</strong> – If the input is not a string or a list of strings</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example usage:</dt><dd><p>my_object = Group01(“my_object”)
+my_object.plot_country_chart(“World”, True)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="group01.Group01.plot_quantity">
+<span class="sig-name descname"><span class="pre">plot_quantity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#group01.Group01.plot_quantity" title="Permalink to this definition"></a></dt>
+<dd><p>Plots a heatmap of the correlation between all the columns in the Pandas DataFrame that end
+with the string ‘_quantity’.</p>
+<p>If the DataFrame does not exist as an attribute of the class instance, the method calls the
+‘get_data()’ method to obtain the data.</p>
+<p>The method creates an empty list called ‘plotted_columns’, and loops through each column in
+the DataFrame, checking if the column name ends with the string ‘_quantity’. If a column
+name ends with ‘_quantity’, the name is appended to the ‘plotted_columns’ list.</p>
+<p>Finally, the method calls the ‘heatmap()’ function from the seaborn library on the
+‘plotted_columns’ data in the DataFrame, and displays the lower triangle heatmap plot using ‘plt.show()’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example usage:</dt><dd><p>my_object = Group01(“my_object”)
+my_object.plot_quantity()</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="group01.Group01.predictor">
+<span class="sig-name descname"><span class="pre">predictor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">countries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#group01.Group01.predictor" title="Permalink to this definition"></a></dt>
+<dd><p>Plots the Total Factor Productivity (TFP) of the given countries
+and predicts TFP up to 2050 using ARIMA. Arima is used instead of
+SARIMAX because it was no seasonality in the data. It was checked by
+plotting ACF and PACF plots and by checking the seasonal decomposition
+plot. It is oserved by the autocorrelation that the time series of the
+data does show a long-term trend or systematic patterns that could affect
+its statistical properties. Thats why we have to use the differencing
+parameter ‘d’ to remove the trend and make the data stationary and smooth
+the variance and mean. It is important becasue an accurate prediction can
+only be made for stationary series, since the data are otherwise randomly
+distributed and randomness cannot be forecasted.</p>
+<p>The order of the autoregressive (AR) component parameter ‘p’ is set to 20.
+The degree of differencing (I) parameter ‘d’ is set to 2.
+The order of the moving average (MA) component parameter ‘q’ is set to 2.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>countries</strong> (<em>list</em>) – A list of up to three country names to plot.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TypeError</strong> – If the received argument is not a list.</p></li>
+<li><p><strong>ValueError</strong> – If the agricultural data has not been loaded yet.</p></li>
+<li><p><strong>ValueError</strong> – If no valid countries are provided.</p></li>
+<li><p><strong>ValueError</strong> – If more than three countries are provided.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example usage:</dt><dd><p>my_object = Group01(“my_object”)
+my_object.predictor([‘United States’, ‘China’, ‘India’])</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, C. Krogmann, L. Kahrig, M. Lenisa, J. Schmid.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
